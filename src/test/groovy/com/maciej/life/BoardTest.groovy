@@ -3,16 +3,34 @@ package com.maciej.life
 import spock.lang.Specification
 
 class BoardTest extends Specification {
-    def "ToString"() {
+
+    def "ToString and row height validation on non square table"() {
         given:
-            Board board = new Board(2,3)
-            board.setField(0,0, true)
-            board.setField(1,1,true)
-            board.setField(2,1,true)
+        Board board = new Board(2, 3)
+        board.setField(0, 0, true)
+        board.setField(1, 1, true)
+        board.setField(2, 1, true)
         when:
-            String ret = board.toString();
+        String ret = board.toString();
         println ret
         then:
-            ret == '\n#.\n.#\n.#'
+        ret == '\n#.\n.#\n.#'
     }
+
+    def "calculate neighbours "() {
+        given:
+        Board board = new Board(2, 3)
+        board.setField(0, 0, true)
+        board.setField(1, 1, true)
+        board.setField(2, 1, true)
+        expect:
+        def result = board.countNeighbours(row, column)
+        where:
+        row | column || result
+        0   | 0      || 1
+        0   | 1      || 2
+        2   | 0      || 2
+        2   | 1      || 1
+    }
+
 }
