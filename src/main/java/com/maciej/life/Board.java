@@ -1,5 +1,8 @@
 package com.maciej.life;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Board {
     private final int width;
     private final int height;
@@ -55,5 +58,20 @@ public class Board {
         return sb.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Board board = (Board) o;
+        return width == board.width &&
+                height == board.height &&
+                Arrays.equals(values, board.values);
+    }
 
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(width, height);
+        result = 31 * result + Arrays.hashCode(values);
+        return result;
+    }
 }
