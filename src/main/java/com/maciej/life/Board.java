@@ -29,10 +29,10 @@ public class Board {
 
     public int countNeighbours(int row, int column) {
         int result = 0;
-        for (int r = row - 1; r < row + 1; r++) {
-            for (int c = column - 1; c < column + 1; c++) {
-                if (c >= 0 && c < width && r >= 0 && row < height
-                        && c != 0 && r != 0
+        for (int r = row - 1; r <= row + 1; r++) {
+            for (int c = column - 1; c <= column + 1; c++) {
+                if ((c >= 0 && c < width && r >= 0 && r < height)
+                        && !(c == column && r == row)
                         && values[r][c]) {
                     result++;
                 }

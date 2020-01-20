@@ -1,6 +1,7 @@
 package com.maciej.life
 
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class BoardTest extends Specification {
 
@@ -17,6 +18,7 @@ class BoardTest extends Specification {
         ret == '\n#.\n.#\n.#'
     }
 
+    @Unroll
     def "calculate neighbours "() {
         given:
         Board board = new Board(2, 3)
