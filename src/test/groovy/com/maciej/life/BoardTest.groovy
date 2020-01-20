@@ -24,7 +24,7 @@ class BoardTest extends Specification {
         board.setField(1, 1, true)
         board.setField(2, 1, true)
         expect:
-        def result = board.countNeighbours(row, column)
+        result == board.countNeighbours(row, column)
         where:
         row | column || result
         0   | 0      || 1
