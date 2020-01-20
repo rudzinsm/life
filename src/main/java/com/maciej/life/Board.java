@@ -32,6 +32,7 @@ public class Board {
         for (int r = row - 1; r < row + 1; r++) {
             for (int c = column - 1; c < column + 1; c++) {
                 if (c >= 0 && c < width && r >= 0 && row < height
+                        && c != 0 && r != 0
                         && values[r][c]) {
                     result++;
                 }
