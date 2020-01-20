@@ -27,20 +27,32 @@ public class Board {
         return height;
     }
 
+    public int countNeighbours(int row, int column) {
+        int result = 0;
+        for (int r = row - 1; r < row + 1; r++) {
+            for (int c = column - 1; c < column + 1; c++) {
+                if (c >= 0 && c < width && r >= 0 && row < height
+                        && values[r][c]) {
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(int r = 0 ; r < height; r++) {
+        for (int r = 0; r < height; r++) {
             sb.append('\n');
-            for(int c = 0 ; c < width; c++) {
-                sb.append(values[r][c] ?"#":".");
+            for (int c = 0; c < width; c++) {
+                sb.append(values[r][c] ? "#" : ".");
             }
 
         }
 
         return sb.toString();
     }
-
 
 
 }
