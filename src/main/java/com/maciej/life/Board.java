@@ -8,6 +8,7 @@ public class Board {
     public Board(int width, int height) {
         this.width = width;
         this.height = height;
+        values = new boolean[height][width];
     }
 
     public boolean getField(int row, int column) {
@@ -15,7 +16,7 @@ public class Board {
     }
 
     public void setField(int row, int column, boolean value) {
-        this.values = values;
+        this.values[row][column] = value;
     }
 
     public int getWidth() {
