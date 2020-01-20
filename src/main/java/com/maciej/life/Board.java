@@ -63,9 +63,14 @@ public class Board {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Board board = (Board) o;
+        for(int r= 0; r<height; r++) {
+            if(!Arrays.equals(values[r], board.values[r])) {
+                return false;
+            }
+        }
+
         return width == board.width &&
-                height == board.height &&
-                Arrays.equals(values, board.values);
+                height == board.height;
     }
 
     @Override
