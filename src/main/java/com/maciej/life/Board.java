@@ -50,7 +50,7 @@ public class Board {
         for (int r = 0; r < height; r++) {
             sb.append('\n');
             for (int c = 0; c < width; c++) {
-                sb.append(values[r][c] ? "#" : ".");
+                sb.append(values[r][c] ? "\u25CF " : "\u2610 ");
             }
 
         }
